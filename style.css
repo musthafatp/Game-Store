@@ -1,0 +1,815 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+:root {
+    /* Exact lime green brand color from the image */
+    --brand-color: #c2eb00;
+}
+
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background: #000;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- Brand Colors & Utilities --- */
+.text-brand {
+    color: var(--brand-color) !important;
+}
+
+/* --- Logo Styling (Fallback for SVG) --- */
+.custom-logo {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-main {
+    color: var(--brand-color);
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.logo-main sup {
+    font-size: 12px;
+}
+
+.logo-sub {
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 5px;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+}
+
+/* --- Center Navigation Pill --- */
+.nav-pill {
+    background: #050505;
+    border-radius: 60px;
+    /* Soft, wide glowing box-shadow */
+    box-shadow: 0 0 45px rgba(196, 230, 26, 0.448);
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    padding: 5px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link i {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.nav-link:hover,
+.nav-link:hover i {
+    color: var(--brand-color);
+}
+
+/* --- Search Box --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #333;
+    border-radius: 50px;
+    padding: 8px 15px;
+    width: 280px;
+    max-width: 100%;
+    background: #000;
+}
+
+.search-box:focus-within {
+    border-color: var(--brand-color);
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* --- Custom Right Action Icons --- */
+.right-actions a {
+    transition: transform 0.1s ease-in-out, filter 0.2s;
+}
+
+.right-actions a:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* --- Carousel & Cards Styling --- */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassmorphic Cards */
+.promo-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* Card Hover States */
+.promo-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--brand-color);
+}
+
+/* Forces descriptions to clip cleanly if they are too long */
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Carousel Control Arrow Adjustments */
+.carousel-control-prev {
+    left: -60px;
+}
+
+.carousel-control-next {
+    right: -60px;
+}
+
+#mainHeroCarousel .carousel-item img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out !important;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+.img-card {
+    margin-top: 30px;
+    height: 300px;
+}
+
+.premium-footer-container {
+    background: linear-gradient(180deg, #09011a 0%, #030008 100%);
+    border: 1px solid rgba(0, 198, 255, 0.12);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 40px 20px;
+    /* Elegant outer glow framework matching the image */
+    box-shadow: 0 0 50px rgba(0, 114, 255, 0.18);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+}
+
+/* --- Responsive 5-Column Grid Setup --- */
+.footer-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 50px;
+}
+
+.gallery-card {
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 9;
+    /* Implements our high-end 0.8s exit trace zoom */
+    will-change: transform;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover Zoom Command */
+.gallery-card:hover img {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* --- Typography & Brand Presentation --- */
+.footer-links-row {
+    margin-bottom: 45px;
+}
+
+.presentation-col {
+    padding-right: 30px;
+}
+
+.footer-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #cbe637;
+    /* The exact corporate gold-lime color from the image */
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+}
+
+.footer-brand sup {
+    font-size: 0.8rem;
+    vertical-align: super;
+    margin-left: 2px;
+}
+
+.sub-brand {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+.brand-description {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --- Navigation Columns Layout --- */
+.footer-column-heading {
+    color: #cbe637;
+    /* Matching lime-gold accents */
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+}
+
+.footer-link-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.footer-link-list li {
+    margin-bottom: 12px;
+}
+
+.footer-link-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    /* Smooth link transition path */
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.footer-link-list a:hover {
+    color: #00c6ff;
+    transform: translateX(3px);
+}
+
+/* --- Bottom Pill Social Bar Area --- */
+.footer-social-pill-bar {
+    background: linear-gradient(90deg, #09011f 0%, #03000b 100%);
+    border: 1px solid rgba(0, 198, 255, 0.2);
+    border-radius: 100px;
+    /* Forces full capsule round layout */
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: inset 0 0 15px rgba(0, 198, 255, 0.08);
+}
+
+.connect-text {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.carousel-item img {
+    transition: 2s;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.1);
+}
+
+.social-icons-group {
+    display: flex;
+    gap: 12px;
+}
+
+.img-card img {
+    transition: 0.3s;
+}
+
+.img-card img:hover {
+    transform: scale(1.1);
+}
+
+.social-circle {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    color: #030008;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-circle:hover {
+    transform: translateY(-3px);
+    background-color: #00c6ff;
+    color: #ffffff;
+}
+
+.custom-select-dropdown {
+    background-color: #5f2ba47e;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 32px 6px 16px; /* Extra right padding so text doesn't hit the arrow */
+    border: 4px solid #315182; /* The thick dark blue border from your image */
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    
+    /* Replaces the ugly default browser arrow with a clean, modern chevron */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* Slight hover effect for desktop users */
+.custom-select-dropdown:hover {
+    border-color: #3f68a6;
+}
+
+/* Target the items inside the dropdown */
+.custom-select-dropdown option {
+    color: #000000;          /* Makes the text pure black */
+    background-color: #ffffff; /* Forces a white background so the black text is always visible */
+    font-weight: 500;        /* Optional: Makes the text slightly easier to read */
+}
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+    .nav-pill {
+        padding: 10px 15px;
+        gap: 5px;
+    }
+
+    .search-box {
+        width: 220px;
+    }
+}
+
+/* LEFT SIDE */
+.hero-section {
+    padding: 80px 0;
+}
+
+.badge-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #b7d300;
+    border-radius: 30px;
+    color: #b7d300;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.highlight {
+    color: #b7d300;
+}
+
+.desc {
+    margin-top: 20px;
+    color: #aaa;
+    max-width: 450px;
+}
+
+.meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.date,
+.platform {
+    color: white;
+    border: 1px solid #c2eb00;
+    background: transparent;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.price {
+    color: white;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.btn-custom {
+    margin-top: 20px;
+    background: #b7d300;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+/* RIGHT GRID */
+.img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.img-grid img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: 0.3s;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.img1,
+.img2,
+.img3,
+.img4 {
+    height: 100%;
+}
+
+.img-grid img:hover {
+    transform: scale(1.05);
+}
+
+#right_side {
+    background-color: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
+}
+
+.card-title-custom {
+    margin-top: 20px;
+}
+
+.footer-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Hide the 4th and 5th items on mid-screens to look uniform */
+.footer-gallery-grid .gallery-card:nth-child(4),
+.footer-gallery-grid .gallery-card:nth-child(5) {
+    display: none;
+}
+
+.footer-social-pill-bar {
+    box-shadow: 10px 10px 10px 10px rgba(115, 10, 227, 0.734);
+}
+
+/* Container for the cards */
+.cards-wrapper {
+    gap: 1.25rem; /* Spaces the cards evenly without squishing them */
+    overflow-x: auto; /* Allows scrolling on smaller screens */
+    padding-bottom: 1rem;
+}
+/* Hide scrollbar for a cleaner look */
+.cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header Filter Pills */
+.filter-pills-container {
+    background-color: #315182; /* The dark blue background from the image */
+    border-radius: 50px;
+    padding: 4px;
+}
+
+.filter-btn {
+    background: transparent;
+    color: #e2e8f0;
+    border: none;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn.active {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 500;
+}
+
+/* PlayStation Card Styling */
+.ps-card {
+    min-width: 260px;
+    max-width: 260px;
+    /* The exact gradient from the image */
+    background: linear-gradient(160deg, #2a2157 0%, #1e285d 40%, #56687a 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ps-badge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2rem;
+}
+
+.product-img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5));
+}
+
+.card-title-custom {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0;
+    padding-right: 15px;
+}
+
+.heart-icon {
+    color: #e83e8c; /* Pink heart color */
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Pricing and Buttons */
+.price-current {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.cart-btn {
+    background-color: #cddc39;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.accessories-container{
+    padding-left: 20px;
+}
+
+@media (max-width: 991px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .img-grid {
+        margin-top: 30px;
+    }
+
+    .nav-pill {
+        border-radius: 15px;
+        box-shadow: none;
+        background: transparent;
+        flex-wrap: wrap;
+        padding: 10px 0;
+        justify-content: center;
+    }
+
+    .nav-link {
+        padding: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .right-actions {
+        width: 100%;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 15px;
+    }
+
+    /* Carousel adjustments for smaller viewports */
+    .carousel-control-prev {
+        left: -20px;
+    }
+
+    .carousel-control-next {
+        right: -20px;
+    }
+
+    .carousel-inner {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-main {
+        font-size: 22px;
+    }
+
+    .logo-sub {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .nav-link {
+        width: 45%;
+        font-size: 11px;
+    }
+
+    .nav-link i {
+        font-size: 20px;
+    }
+
+    #mainHeroCarousel .carousel-item img {
+        height: 40vh;
+        border-radius: 15px;
+    }
+
+    .carousel-indicators {
+        bottom: -10px;
+    }
+
+    .right-actions {
+        gap: 20px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+
+    .premium-footer-container {
+        padding: 24px;
+        margin: 20px 10px;
+    }
+
+    .footer-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on mobile devices */
+    }
+
+    .footer-gallery-grid .gallery-card:nth-child(3) {
+        display: none;
+    }
+
+    .footer-social-pill-bar {
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 20px;
+        /* Switches to rounded box layout if screen is too narrow */
+        text-align: center;
+    }
+
+    .presentation-col {
+        padding-right: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .nav-link {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .nav-pill {
+        width: 100%;
+    }
+
+    .logo-main {
+        font-size: 18px;
+    }
+
+    .search-box {
+        padding: 10px;
+    }
+
+    #mainHeroCarousel .carousel-item img {
+        height: 30vh;
+    }
+
+    .row {
+        margin-left: 10px;
+    }
+
+    .img-grid {
+        padding-right: 30px;
+    }
+
+    /* Style the custom select to match the image perfectly */
+.custom-select-dropdown {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 6px 32px 6px 16px; /* Extra right padding so text doesn't hit the arrow */
+    border: 4px solid #315182; /* The thick dark blue border from your image */
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    
+    /* Replaces the ugly default browser arrow with a clean, modern chevron */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+/* Slight hover effect for desktop users */
+.custom-select-dropdown:hover {
+    border-color: #3f68a6;
+}
+
+/* Optional: Slightly reduce the card sizes on very small screens for better fit */
+    .ps-card {
+        min-width: 220px;
+        max-width: 220px;
+        padding: 1rem;
+    }
+    .product-img {
+        height: 110px; 
+    }
+}
